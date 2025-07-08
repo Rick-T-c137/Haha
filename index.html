@@ -4,101 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./main.css">
     <title>战地记录</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background-color: black;
-            min-height: 100vh;
-        }
 
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-        }
-
-        h1 {
-            text-align: center;
-            color: #fff;
-            font-size: 3em;
-            margin-top: 40px;
-            letter-spacing: 0.1em;
-            text-shadow: 0 4px 16px #6fa8dc, 0 1px 0 #222;
-            font-weight: bold;
-        }
-
-        hr {
-            border: 2px solid #6fa8dc;
-            width: 60%;
-            margin: 30px auto;
-            border-radius: 2px;
-            box-shadow: 0 2px 8px #6fa8dc55;
-        }
-
-        p {
-            text-align: center;
-            color: #f1f1f1;
-            font-size: 1.3em;
-            margin: 16px 0;
-            text-shadow: 0 1px 4px #222;
-        }
-
-        a {
-            display: block;
-            text-align: center;
-            color: #fff;
-            font-size: 1.3em;
-            margin: 24px auto;
-            text-decoration: none;
-            background-color: #6fa8dccc;
-            padding: 12px 0;
-            width: 220px;
-            border-radius: 30px;
-            box-shadow: 0 2px 12px #6fa8dc55;
-            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-        }
-
-        a:hover {
-            color: #111;
-            background-color: #6fa8dccc;
-            transform: scale(1.05) translateY(-2px);
-
-        }
-
-        video {
-            display: block;
-            margin: 28px auto;
-            width: 85%;
-            max-width: 900px;
-            border: 3px solid #6fa8dc;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px #6fa8dc55;
-            background: #111;
-        }
-
-        img {
-            display: block;
-            margin: 28px auto;
-            width: 85%;
-            max-width: 900px;
-            border: 3px solid #6fa8dc;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px #6fa8dc55;
-            background: #111;
-        }
-    </style>
     <script>
         // 粒子参数
         const PARTICLE_NUM = 100;
         const PARTICLE_COLOR = "#6fa8dc";
-        const PARTICLE_RADIUS = 1.5;
-        const LINE_DISTANCE = 130;
+        const PARTICLE_RADIUS = 2;
+        const LINE_DISTANCE = 150;
 
         let canvas, ctx, particles = [];
 
@@ -165,6 +79,7 @@
 
             requestAnimationFrame(animate);
         }
+
     </script>
 
 </head>
