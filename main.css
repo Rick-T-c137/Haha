@@ -66,68 +66,75 @@ a:hover {
     box-shadow: 0 4px 16px #6fa8dc99;
 }
 
-/* 默认视频/图片样式（非画廊内） */
-video:not(.media-gallery video),
-img:not(.media-gallery img) {
+/* ===== 基础样式 ===== */
+video,
+img {
     display: block;
-    margin: 28px auto;
     width: 85%;
     max-width: 900px;
+    margin: 28px auto;
     border: 3px solid #6fa8dc;
     border-radius: 18px;
     box-shadow: 0 4px 24px #6fa8dc55;
     background: #111;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* 画廊样式 */
-.media-gallery {
+video:hover,
+img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px #6fa8dc88;
+}
+
+/* ===== 画廊模式 ===== */
+/* 当video/img直接放在main/article/section等容器时 */
+main>video,
+main>img,
+article>video,
+article>img,
+section>video,
+section>img {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border-width: 2px;
+    border-radius: 12px;
+}
+
+/* 画廊布局容器 */
+.media-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 20px;
-    margin: 20px auto;
     max-width: 1400px;
+    margin: 0 auto;
 }
 
-.media-gallery video,
-.media-gallery img {
-    width: 100%;
-    height: auto;
-    border: 2px solid #6fa8dc;
-    /* 保持风格统一 */
-    border-radius: 12px;
-    padding: 0;
-    /* 移除padding改用gap控制间距 */
-    box-shadow: 0 2px 12px #6fa8dc55;
-    background: #111;
-    transition: transform 0.3s;
-}
-
-.media-gallery video:hover,
-.media-gallery img:hover {
-    transform: scale(1.02);
-}
-
-/* 响应式调整 */
+/* ===== 响应式调整 ===== */
 @media (max-width: 1024px) {
-    .media-gallery {
+    .media-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .media-gallery {
-        grid-template-columns: 1fr;
-    }
 
-    h1 {
-        font-size: 2.2em;
-        margin-top: 30px;
-    }
-
-    video:not(.media-gallery video),
-    img:not(.media-gallery img) {
+    video,
+    img {
         width: 90%;
+        border-width: 4px;
+    }
+
+    .media-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    /* 手机端单独媒体元素调整 */
+    body>video:not(.media-grid video),
+    body>img:not(.media-grid img) {
         margin: 20px auto;
     }
 }
