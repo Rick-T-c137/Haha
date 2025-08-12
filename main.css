@@ -143,3 +143,44 @@ section>img {
         margin: 20px auto;
     }
 }
+
+/* 通用图片容器样式 */
+div:has(img) {
+    display: grid;
+    gap: 15px;
+    padding: 15px;
+}
+
+/* 电脑端 - 一行3个 */
+@media (min-width: 992px) {
+    div:has(img) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 平板端 - 一行2个 */
+@media (min-width: 768px) and (max-width: 991px) {
+    div:has(img) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 手机端 - 一行1个 */
+@media (max-width: 767px) {
+    div:has(img) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 图片样式 */
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.02);
+}
