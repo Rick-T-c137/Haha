@@ -13,7 +13,7 @@
         const PARTICLE_RADIUS = 2;
         const LINE_DISTANCE = 120;
 
-        // 动态计算粒子数量（修复点1：移除重复的PARTICLE_NUM，改用动态计算）
+        // 动态计算粒子数量
         const PARTICLE_NUM = window.innerWidth < 768
             ? Math.floor(130 * 0.6)  // 移动端用78个粒子（原130的60%）
             : 130;                    // PC端保持130个
@@ -29,7 +29,7 @@
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
 
-            // 初始化粒子（修复点2：确保particles数组在resize时不会重复填充）
+            // 初始化粒子
             particles = []; // 清空旧粒子
             for (let i = 0; i < PARTICLE_NUM; i++) {
                 particles.push({
@@ -45,7 +45,7 @@
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            // 修复点3：窗口大小变化时重新初始化粒子位置
+
             particles.forEach(p => {
                 p.x = Math.random() * canvas.width;
                 p.y = Math.random() * canvas.height;
@@ -56,7 +56,7 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             // 绘制粒子
-            for (let i = 0; i < particles.length; i++) {  // 修复点4：改用particles.length而非PARTICLE_NUM
+            for (let i = 0; i < particles.length; i++) {
                 let p = particles[i];
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, PARTICLE_RADIUS, 0, Math.PI * 2);
@@ -112,9 +112,9 @@
     <p>以下为深夜X与Z的谈话</p>
 
     <div class="media-grid">
-        <video src="./video0022.mp4" controls></video>
-        <video src="./video0025.mp4" controls></video>
-        <video src="./video0026.mp4" controls></video>
+        <audio src="./video0022.mp3" controls></audio>
+        <audio src="./video0025.mp3" controls></audio>
+        <audio src="./video0026.mp3" controls></audio>
     </div>
 
     <br>

@@ -55,15 +55,20 @@ a {
     border-radius: 30px;
     box-shadow: 0 2px 12px #6fa8dc55;
     transition: all 0.3s ease;
-    /* 添加过渡 */
+    transform: translateY(0);
+    will-change: transform, box-shadow, background-color;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+
 }
 
 a:hover {
     color: #111;
     background-color: #8fc1ff;
-    /* 修改背景色 */
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 4px 16px #6fa8dc99;
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 6px 20px #6fa8dc99;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* ===== 基础样式 ===== */
@@ -78,14 +83,27 @@ img {
     box-shadow: 0 4px 24px #6fa8dc55;
     background: #111;
     transition: transform 0.3s, box-shadow 0.3s;
+    transform: translateY(0) scale(1);
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateZ(0);
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+
 }
 
 video:hover,
 img:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 32px #6fa8dc88;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px #6fa8dcaa;
 }
 
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 
 
